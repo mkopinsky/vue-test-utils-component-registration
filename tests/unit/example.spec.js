@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 describe('HelloWorld.vue', () => {
@@ -9,5 +9,9 @@ describe('HelloWorld.vue', () => {
       propsData: { msg }
     })
     expect(wrapper.text()).to.include(msg)
+  })
+  it('renders the survey', () => {
+    const wrapper = mount(HelloWorld)
+    expect(wrapper.text()).to.include('Tell us, what technologies do you use')
   })
 })
